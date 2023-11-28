@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3952827041337040518}
   - component: {fileID: 2628238885766300003}
+  - component: {fileID: -4386496633029682742}
   m_Layer: 0
   m_Name: EMonster
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4386496633029682742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760521723982115592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mHealth: 100
+  mDamage: 20
+  mDefence: 10

@@ -15,32 +15,29 @@ public enum CombatState
 public class CombatSystemManager : MonoBehaviour
 {
     //Variables
-    
     //Spawning Characters
     //--Player--
     public GameObject pMonsterPrefab;
     public Transform pMonsterSpawnPos;
     public GameObject pMonster;
-    
     //--Enemies
     private const int EMONSTERLISTLENGTH = 3;
     public GameObject[] eMonsterPrefabs = new GameObject[EMONSTERLISTLENGTH];
     public Transform[] eMonsterSpawnPos = new Transform[EMONSTERLISTLENGTH];
     public GameObject[] eMonsters = new GameObject[EMONSTERLISTLENGTH];
+    //--Skill Systems
 
+    //State
     public CombatState combatState;
-    
     //HUD
     public TextMeshProUGUI combatStateText;
     
-    
-    //Method
-    
+    //Methods
     void Start()
     {
         HandleCombatState(CombatState.Start);
+        //killSystemManager.pMonsterStat = pMonster.GetComponent<PMonsterStat>();
     }
-
     //--Spawn Monster--
     void SpawnPMonster()
     {
@@ -50,7 +47,7 @@ public class CombatSystemManager : MonoBehaviour
             pMonster = pMonsterTemp;
         }
     }
-    void SpawnEnemyMonsters()
+    void SpawnEMonsters()
     {
         for(int i = 0; i < EMONSTERLISTLENGTH; i++)
         {   
@@ -60,13 +57,13 @@ public class CombatSystemManager : MonoBehaviour
                 eMonsters[i] = eMonsterTemp;
             }
         }
-    } 
-    
+    }
     //--State Handling--
     void HandleCombatState(CombatState state)
     {
         switch (state)
         {
+            //Combat Setup
             case CombatState.Start:
             {
                 SetupHUD();
@@ -75,16 +72,20 @@ public class CombatSystemManager : MonoBehaviour
                 SpawnPMonster();
                 
                 //Spawn Enemies Monsters
-                SpawnEnemyMonsters();
+                SpawnEMonsters();
                 
                 StartCoroutine(ChangeState(CombatState.PlayerTurn));
                 break;
             }
+            
+            //Player Turn
             case CombatState.PlayerTurn:
             {
                 UpdateState(CombatState.PlayerTurn);
                 break;
             }
+            
+            //Enemy Turn
             case CombatState.EnemyTurn:
             {
                 UpdateState(CombatState.EnemyTurn);
@@ -98,6 +99,8 @@ public class CombatSystemManager : MonoBehaviour
                 
                 break;
             }
+            
+            //Combat End
             case CombatState.End:
             {
                 UpdateState(CombatState.End);
@@ -110,6 +113,7 @@ public class CombatSystemManager : MonoBehaviour
             }
         }
     }
+    //--State Change--
     private void UpdateState(CombatState state)
     {
         combatState = state;
@@ -121,7 +125,6 @@ public class CombatSystemManager : MonoBehaviour
         
         HandleCombatState(state);
     }
-    
     //--HUD--
     void SetupHUD()
     {
@@ -131,7 +134,6 @@ public class CombatSystemManager : MonoBehaviour
     {
         combatStateText.SetText("CombatState: " + state.ToString());
     }
-    
     //--OnClick--
     public void PlayerEndTurn()
     {
