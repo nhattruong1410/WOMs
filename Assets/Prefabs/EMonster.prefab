@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mName: Monster
   mHealth: 100
   mDamage: 20
   mDefence: 10
+  skillManager: {fileID: 0}

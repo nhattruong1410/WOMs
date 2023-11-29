@@ -149,6 +149,8 @@ MonoBehaviour:
   mHealth: 100
   mDamage: 20
   mDefence: 10
+  skillManager: {fileID: 0}
+  skillList: 
 --- !u!1001 &80181816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,6 +303,7 @@ MonoBehaviour:
   pMonsterPrefab: {fileID: 6058584007488006508, guid: 9fb7863df09337d4e90c23dcf366a8f0, type: 3}
   pMonsterSpawnPos: {fileID: 9015456929681782587, guid: 9bd1df50c149b01478b096e556aee443, type: 3}
   pMonster: {fileID: 0}
+  pMonsterStat: {fileID: 0}
   eMonsterPrefabs:
   - {fileID: 1760521723982115592, guid: 366353f7b94352244bda47a5b8c77be7, type: 3}
   - {fileID: 1760521723982115592, guid: 366353f7b94352244bda47a5b8c77be7, type: 3}
@@ -314,6 +317,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   combatState: 0
+  skillSystemMangager: {fileID: 1061873900}
   combatStateText: {fileID: 548543620}
 --- !u!1 &519420028
 GameObject:
@@ -444,68 +448,8 @@ MonoBehaviour:
   mHealth: 100
   mDamage: 20
   mDefence: 10
---- !u!1 &1007824290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1007824293}
-  - component: {fileID: 1007824292}
-  - component: {fileID: 1007824291}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1007824291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007824290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c82469b10c63c974ab4fcce43810e783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCaster: {fileID: 0}
---- !u!114 &1007824292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007824290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mName: Monster
-  mHealth: 100
-  mDamage: 20
-  mDefence: 10
---- !u!4 &1007824293
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007824290}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82195604, y: -0.7582203, z: 0.042683475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  skillManager: {fileID: 0}
+  skillList: 
 --- !u!1 &1018551852
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061873899}
-  - component: {fileID: 1061873898}
+  - component: {fileID: 1061873900}
   m_Layer: 0
   m_Name: SkillSystem
   m_TagString: Untagged
@@ -591,19 +535,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1061873898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061873897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df52a7daa871734ba0fc37deee1c05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pMonsterStat: {fileID: 0}
 --- !u!4 &1061873899
 Transform:
   m_ObjectHideFlags: 0
@@ -619,6 +550,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061873900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061873897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c7bcc9ae91af9469e5b4e7947eb996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1224750555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,6 +654,8 @@ MonoBehaviour:
   mHealth: 100
   mDamage: 20
   mDefence: 10
+  skillManager: {fileID: 0}
+  skillList: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -720,5 +665,4 @@ SceneRoots:
   - {fileID: 1224750555}
   - {fileID: 243990959}
   - {fileID: 1018551855}
-  - {fileID: 1007824293}
   - {fileID: 1061873899}
