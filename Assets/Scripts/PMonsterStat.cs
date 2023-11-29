@@ -5,17 +5,12 @@ using UnityEngine;
 
 public class PMonsterStat : MonsterStat
 {
-    //Variables
-    public List<String> skillList;
+    //VARIABLES
+    
 
-    private void Start()
+    //METHODS
+    public void AddSkill(SkillSystemMangager.MonsterSkill skill)
     {
-        skillList = new List<String>();
-    }
-
-    //Methods
-    public void AddSkill(String skillName)
-    {
-        skillList.Add(skillName);
+        skillList.Add(skill);
     }
 }

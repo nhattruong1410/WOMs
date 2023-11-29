@@ -14,30 +14,36 @@ public enum CombatState
 }
 public class CombatSystemManager : MonoBehaviour
 {
-    //Variables
+    //VARIABLES
     //Spawning Characters
     //--Player--
     public GameObject pMonsterPrefab;
     public Transform pMonsterSpawnPos;
     public GameObject pMonster;
-    //--Enemies
+    public PMonsterStat pMonsterStat;
+    
+    //--Enemies--
     private const int EMONSTERLISTLENGTH = 3;
     public GameObject[] eMonsterPrefabs = new GameObject[EMONSTERLISTLENGTH];
     public Transform[] eMonsterSpawnPos = new Transform[EMONSTERLISTLENGTH];
     public GameObject[] eMonsters = new GameObject[EMONSTERLISTLENGTH];
-    //--Skill Systems
 
-    //State
+    //--State--
     public CombatState combatState;
-    //HUD
+    
+    //--Skill--
+    public  SkillSystemMangager skillSystemMangager;
+    
+    //--HUD--
     public TextMeshProUGUI combatStateText;
     
-    //Methods
+    //METHODS
     void Start()
     {
         HandleCombatState(CombatState.Start);
-        //killSystemManager.pMonsterStat = pMonster.GetComponent<PMonsterStat>();
+        
     }
+    
     //--Spawn Monster--
     void SpawnPMonster()
     {
@@ -45,6 +51,12 @@ public class CombatSystemManager : MonoBehaviour
         {
             GameObject pMonsterTemp = Instantiate(pMonsterPrefab, pMonsterSpawnPos.position, Quaternion.identity);
             pMonster = pMonsterTemp;
+            if (pMonster) pMonsterStat = pMonster.GetComponent<PMonsterStat>(); 
+            if (pMonsterStat)
+            {
+                pMonsterStat.skillList.Add(SkillSystemMangager.MonsterSkill.ABite);
+                Debug.Log("Add Bite skill");
+            }
         }
     }
     void SpawnEMonsters()
@@ -58,6 +70,7 @@ public class CombatSystemManager : MonoBehaviour
             }
         }
     }
+    
     //--State Handling--
     void HandleCombatState(CombatState state)
     {
@@ -66,44 +79,28 @@ public class CombatSystemManager : MonoBehaviour
             //Combat Setup
             case CombatState.Start:
             {
-                SetupHUD();
-                
-                //Spawn Player Monster
-                SpawnPMonster();
-                
-                //Spawn Enemies Monsters
-                SpawnEMonsters();
-                
-                StartCoroutine(ChangeState(CombatState.PlayerTurn));
+               HandleCombatStart();
                 break;
             }
             
             //Player Turn
             case CombatState.PlayerTurn:
             {
-                UpdateState(CombatState.PlayerTurn);
+                HandlePlayerTurn();
                 break;
             }
             
             //Enemy Turn
             case CombatState.EnemyTurn:
             {
-                UpdateState(CombatState.EnemyTurn);
-                
-                for (int i = 0; i < EMONSTERLISTLENGTH; i++)
-                {
-                    Debug.Log("EMonster" + i + " is attacking");
-                }
-
-                StartCoroutine(ChangeState(CombatState.End));
-                
+                HandleEnemyTurn();
                 break;
             }
             
             //Combat End
             case CombatState.End:
             {
-                UpdateState(CombatState.End);
+                HandleCombatEnd();
                 break;
             }
             default:
@@ -113,27 +110,53 @@ public class CombatSystemManager : MonoBehaviour
             }
         }
     }
-    //--State Change--
-    private void UpdateState(CombatState state)
+    
+    //--Combat State Handle--
+    private void UpdateCombatState(CombatState state)
     {
         combatState = state;
         ChangeStateHUD(state);
     }
-    IEnumerator ChangeState(CombatState state)
+    IEnumerator ChangeCombatState(CombatState state)
     {
         yield return new WaitForSeconds(1);
         
         HandleCombatState(state);
     }
-    //--HUD--
-    void SetupHUD()
+    private void HandleCombatStart()
     {
-        ChangeStateHUD(CombatState.Start);
+        SetupHUD();
+                
+        //Spawn Player Monster
+        SpawnPMonster();
+        
+        //Spawn Enemies Monsters
+        SpawnEMonsters();
+                
+        StartCoroutine(ChangeCombatState(CombatState.PlayerTurn));
+       
     }
-    void ChangeStateHUD(CombatState state)
+    private void HandlePlayerTurn()
     {
-        combatStateText.SetText("CombatState: " + state.ToString());
+        UpdateCombatState(CombatState.PlayerTurn);
+        skillSystemMangager.HandleSkill(pMonsterStat.skillList[0], pMonsterStat, eMonsters[0].GetComponent<MonsterStat>());
     }
+    private void HandleEnemyTurn()
+    {
+        UpdateCombatState(CombatState.EnemyTurn);
+                
+        for (int i = 0; i < EMONSTERLISTLENGTH; i++)
+        {
+            Debug.Log("EMonster" + i + " is attacking");
+        }
+
+        StartCoroutine(ChangeCombatState(CombatState.End));
+    }
+    private void HandleCombatEnd()
+    {
+        UpdateCombatState(CombatState.End);
+    }
+    
     //--OnClick--
     public void PlayerEndTurn()
     {
@@ -144,4 +167,17 @@ public class CombatSystemManager : MonoBehaviour
         
         Debug.Log("End Turn");
     }
+  
+    //--HUD--
+    void SetupHUD()
+    {
+        ChangeStateHUD(CombatState.Start);
+    }
+    void ChangeStateHUD(CombatState state)
+    {
+        combatStateText.SetText("CombatState: " + state.ToString());
+    }
+    
+ 
+    
 }

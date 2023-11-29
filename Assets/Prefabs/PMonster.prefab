@@ -101,4 +101,5 @@ MonoBehaviour:
   mHealth: 100
   mDamage: 20
   mDefence: 10
-  skillList: []
+  skillManager: {fileID: 0}
+  skillList: 
