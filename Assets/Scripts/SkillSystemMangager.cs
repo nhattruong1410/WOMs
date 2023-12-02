@@ -8,6 +8,7 @@ public class SkillSystemMangager : MonoBehaviour
     public enum MonsterSkill
     {
         //A for physical attack, D for defence, El for element, Ef for effect
+        Default,
         ABite,
         DSkinHarden,
         ElFireBall,
@@ -19,6 +20,12 @@ public class SkillSystemMangager : MonoBehaviour
     //METHODS
     public void HandleSkill(MonsterSkill skill, MonsterStat caster, MonsterStat target)
     {
+        if (!target)
+        {
+            Debug.Log("Please Choose Enemy Monster");
+            return;
+        }
+
         switch (skill)
         {
             //Attack
