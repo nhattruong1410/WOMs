@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public enum CombatState
@@ -16,25 +18,37 @@ public class CombatSystemManager : MonoBehaviour
 {
     //VARIABLES
     //Spawning Characters
+    [Header("Spawning")]
     //--Player--
     public GameObject pMonsterPrefab;
     public Transform pMonsterSpawnPos;
-    public GameObject pMonster;
     public PMonsterStat pMonsterStat;
-    
     //--Enemies--
-    private const int EMONSTERLISTLENGTH = 3;
-    public GameObject[] eMonsterPrefabs = new GameObject[EMONSTERLISTLENGTH];
+    [SerializeField] private const int EMONSTERLISTLENGTH = 3;
     public Transform[] eMonsterSpawnPos = new Transform[EMONSTERLISTLENGTH];
+    public GameObject[] eMonsterPrefabs = new GameObject[EMONSTERLISTLENGTH];
+    
+    //--Monster
+    [Header("Monster")]
+    public GameObject pMonster;
     public GameObject[] eMonsters = new GameObject[EMONSTERLISTLENGTH];
-
+    
     //--State--
+    [Header("State")]
     public CombatState combatState;
     
+    //--PlayerState--
+    [Header("PlayerState")] 
+    public bool isPlayerTurn = false;
+    public SkillSystemMangager.MonsterSkill selectedSkill = SkillSystemMangager.MonsterSkill.Default;
+    public MonsterStat monsterSelected;
+
+
     //--Skill--
     public  SkillSystemMangager skillSystemMangager;
     
     //--HUD--
+    [Header("HUD")]
     public TextMeshProUGUI combatStateText;
     
     //METHODS
@@ -43,7 +57,7 @@ public class CombatSystemManager : MonoBehaviour
         HandleCombatState(CombatState.Start);
         
     }
-    
+
     //--Spawn Monster--
     void SpawnPMonster()
     {
@@ -80,7 +94,7 @@ public class CombatSystemManager : MonoBehaviour
             case CombatState.Start:
             {
                HandleCombatStart();
-                break;
+               break;
             }
             
             //Player Turn
@@ -139,7 +153,19 @@ public class CombatSystemManager : MonoBehaviour
     private void HandlePlayerTurn()
     {
         UpdateCombatState(CombatState.PlayerTurn);
-        skillSystemMangager.HandleSkill(pMonsterStat.skillList[0], pMonsterStat, eMonsters[0].GetComponent<MonsterStat>());
+        
+        if(selectedSkill != SkillSystemMangager.MonsterSkill.Default)
+        {
+            StartCoroutine(RemindPlayerTurn());
+            Debug.Log("Please select a skill");
+        }
+    }
+
+    IEnumerator RemindPlayerTurn()
+    {
+        yield return new WaitForSeconds(5);
+        
+        HandlePlayerTurn();
     }
     private void HandleEnemyTurn()
     {
@@ -157,7 +183,15 @@ public class CombatSystemManager : MonoBehaviour
         UpdateCombatState(CombatState.End);
     }
     
-    //--OnClick--
+    //--PlayerState--
+    public void PlayerSelectedSkill(SkillSystemMangager.MonsterSkill skill)
+    {
+        selectedSkill = skill;
+    }
+    public void PlayerSelectedEMonsters(MonsterStat monster) 
+    {
+       
+    }
     public void PlayerEndTurn()
     {
         if (combatState == CombatState.PlayerTurn)
@@ -166,7 +200,7 @@ public class CombatSystemManager : MonoBehaviour
         }
         
         Debug.Log("End Turn");
-    }
+    }//OnClick
   
     //--HUD--
     void SetupHUD()
