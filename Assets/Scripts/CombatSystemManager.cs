@@ -22,7 +22,7 @@ public class CombatSystemManager : MonoBehaviour
     //--Player--
     public GameObject pMonsterPrefab;
     public Transform pMonsterSpawnPos;
-    public PMonsterStat pMonsterStat;
+    public PMonster pMonsterStat;
     //--Enemies--
     [SerializeField] private const int EMONSTERLISTLENGTH = 3;
     public Transform[] eMonsterSpawnPos = new Transform[EMONSTERLISTLENGTH];
@@ -41,7 +41,7 @@ public class CombatSystemManager : MonoBehaviour
     [Header("PlayerState")] 
     public bool isPlayerTurn = false;
     public SkillSystemMangager.MonsterSkill selectedSkill = SkillSystemMangager.MonsterSkill.Default;
-    public MonsterStat monsterSelected;
+    public Monster monsterSelected;
 
 
     //--Skill--
@@ -65,7 +65,7 @@ public class CombatSystemManager : MonoBehaviour
         {
             GameObject pMonsterTemp = Instantiate(pMonsterPrefab, pMonsterSpawnPos.position, Quaternion.identity);
             pMonster = pMonsterTemp;
-            if (pMonster) pMonsterStat = pMonster.GetComponent<PMonsterStat>(); 
+            if (pMonster) pMonsterStat = pMonster.GetComponent<PMonster>(); 
             if (pMonsterStat)
             {
                 pMonsterStat.skillList.Add(SkillSystemMangager.MonsterSkill.ABite);
@@ -188,7 +188,7 @@ public class CombatSystemManager : MonoBehaviour
     {
         selectedSkill = skill;
     }
-    public void PlayerSelectedEMonsters(MonsterStat monster) 
+    public void PlayerSelectedEMonsters(Monster monster) 
     {
        
     }
@@ -209,7 +209,7 @@ public class CombatSystemManager : MonoBehaviour
     }
     void ChangeStateHUD(CombatState state)
     {
-        combatStateText.SetText("CombatState: " + state.ToString());
+        combatStateText.SetText("CombatState: " + state);
     }
     
  

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EMonsterStat : MonsterStat, IPointerClickHandler
+public class EMonster : Monster, IPointerClickHandler
 {
     public CombatSystemManager csManager;
     public SkillSystemMangager ssMangager;
@@ -13,7 +13,7 @@ public class EMonsterStat : MonsterStat, IPointerClickHandler
         Debug.Log("Monster Click!");
         if (csManager.selectedSkill != SkillSystemMangager.MonsterSkill.Default)
         {
-            ssMangager.HandleSkill(csManager.selectedSkill, csManager.pMonsterStat, this);
+            ssMangager.HandleSkill(csManager.selectedSkill, csManager.pMonster, this);
         }
     }
 

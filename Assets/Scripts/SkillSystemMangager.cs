@@ -18,9 +18,10 @@ public class SkillSystemMangager : MonoBehaviour
     //VARIABLE
 
     //METHODS
-    public void HandleSkill(MonsterSkill skill, MonsterStat caster, MonsterStat target)
+    public void HandleSkill(MonsterSkill skill, GameObject casterGO, Monster target)
     {
-        if (!target)
+        Monster caster = casterGO.GetComponent<Monster>();
+        if (!target && !caster)
         {
             Debug.Log("Please Choose Enemy Monster");
             return;
@@ -61,7 +62,7 @@ public class SkillSystemMangager : MonoBehaviour
             }
         }
     }
-    void AddSkill(MonsterStat monster, MonsterSkill skill)
+    void AddSkill(Monster monster, MonsterSkill skill)
     {
         monster.skillList.Add(skill);
     }
