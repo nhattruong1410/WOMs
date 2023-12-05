@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - InvincibleBG
   - Water
   - UI
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: InvincibleBG
+    uniqueID: 3206644777
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -59,9 +62,6 @@ TagManager:
     locked: 0
   - name: Intruction
     uniqueID: 2338212251
-    locked: 0
-  - name: New Layer 7
-    uniqueID: 3206644777
     locked: 0
   - name: New Layer 8
     uniqueID: 2052710991

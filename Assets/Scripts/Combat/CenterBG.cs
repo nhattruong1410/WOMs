@@ -8,7 +8,7 @@ public class CenterBG : MonoBehaviour, IPointerClickHandler
     //VARIABLES
     public CombatSystemManager combatSystemManager;
     // Start is called before the first frame update
-    public float distanceFromCamera = 5f;
+    public float distanceFromCamera = 1f;
     
     //METHODS
     void Start()

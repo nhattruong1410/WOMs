@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3952827041337040518}
   - component: {fileID: 2628238885766300003}
-  - component: {fileID: -4386496633029682742}
+  - component: {fileID: 1438371813568043441}
+  - component: {fileID: 467218600804890257}
+  - component: {fileID: 3334751631442627416}
   m_Layer: 0
   m_Name: EMonster
   m_TagString: Untagged
@@ -85,7 +87,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4386496633029682742
+--- !u!58 &1438371813568043441
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760521723982115592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0030733943}
+  serializedVersion: 2
+  m_Radius: 0.51757365
+--- !u!114 &467218600804890257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760521723982115592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
+  m_Script: {fileID: 11500000, guid: f2bd70f32a29609459e1ea1e08eb7053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mName: Monster
@@ -102,3 +139,34 @@ MonoBehaviour:
   mDamage: 20
   mDefence: 10
   skillManager: {fileID: 0}
+  skillList: 
+  combatManager: {fileID: 0}
+--- !u!114 &3334751631442627416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760521723982115592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 467218600804890257}
+          m_TargetAssemblyTypeName: EMonsterStat, Assembly-CSharp
+          m_MethodName: OnPointerClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
