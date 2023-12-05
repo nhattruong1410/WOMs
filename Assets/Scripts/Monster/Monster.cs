@@ -13,6 +13,6 @@ public class Monster : MonoBehaviour
     public float mDefence = 10.0f;
     //Skill
     [Header("Skill")]
-    [SerializeField] private SkillSystemMangager skillManager;
+    [SerializeField] public SkillSystemMangager skillManager;
     public List<SkillSystemMangager.MonsterSkill> skillList = new List<SkillSystemMangager.MonsterSkill>();
 }
