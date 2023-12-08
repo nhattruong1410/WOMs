@@ -13,9 +13,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - IOLayer
+  - Barrier
+  - Grass
   - 
   - 
   - 
@@ -45,33 +45,18 @@ TagManager:
   - name: BG
     uniqueID: 1120595679
     locked: 0
-  - name: Sand
+  - name: IO
     uniqueID: 587824027
     locked: 0
-  - name: Tree
-    uniqueID: 4273790659
+  - name: Sea
+    uniqueID: 2634939811
     locked: 0
-  - name: Mountain
-    uniqueID: 2554654621
+  - name: Sand
+    uniqueID: 1600207803
     locked: 0
-  - name: Area
-    uniqueID: 3139862731
+  - name: BO
+    uniqueID: 3828397755
     locked: 0
-  - name: Intruction
-    uniqueID: 2338212251
-    locked: 0
-  - name: New Layer 7
-    uniqueID: 3206644777
-    locked: 0
-  - name: New Layer 8
-    uniqueID: 2052710991
-    locked: 0
-  - name: New Layer 9
-    uniqueID: 818086411
-    locked: 0
-  - name: New Layer 10
-    uniqueID: 2953932559
-    locked: 0
-  - name: New Layer 11
-    uniqueID: 4274147337
+  - name: Grass
+    uniqueID: 3276343945
     locked: 0
