@@ -3,13 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - PlayerMonster
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - InvincibleBG
+  - 
   - Water
   - UI
   - 
@@ -39,39 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: InvincibleBG
-    uniqueID: 3206644777
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG
-    uniqueID: 1120595679
+  - name: New Layer 1
+    uniqueID: 1554706355
     locked: 0
-  - name: Sand
-    uniqueID: 587824027
+  - name: New Layer 2
+    uniqueID: 922565319
     locked: 0
-  - name: Tree
-    uniqueID: 4273790659
-    locked: 0
-  - name: Mountain
-    uniqueID: 2554654621
-    locked: 0
-  - name: Area
-    uniqueID: 3139862731
-    locked: 0
-  - name: Intruction
-    uniqueID: 2338212251
-    locked: 0
-  - name: New Layer 8
-    uniqueID: 2052710991
-    locked: 0
-  - name: New Layer 9
-    uniqueID: 818086411
-    locked: 0
-  - name: New Layer 10
-    uniqueID: 2953932559
-    locked: 0
-  - name: New Layer 11
-    uniqueID: 4274147337
+  - name: New Layer 3
+    uniqueID: 4289321389
     locked: 0
