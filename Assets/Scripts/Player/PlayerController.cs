@@ -9,49 +9,41 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask IOLayer;
     public LayerMask grassLayer;
+    
     private bool isMoving;
     private Rigidbody2D rb;
-    private Vector2 input;
+    private Vector3 input = new Vector3(0,0,1);
+    private Vector3 vec3Zero = new Vector3(0,0,1);
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    
+    void Move()
     {
         if (!isMoving)
         {
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
 
-            if (input.x != 0 ) input.y = 0;
-
-            if (input != Vector2.zero)
+            if (input != vec3Zero)
             {
                 var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+                transform.position += input * (Time.deltaTime * moveSpeed);
 
-                if (IsWalkable(targetPos))
-                {
-                    StartCoroutine(Move(targetPos));
-                }
+                // if (IsWalkable(targetPos))
+                // {
+                //     StartCoroutine(Move(targetPos));
+                // }
             }
         }
-    }
-
-    IEnumerator Move(Vector3 targetPos)
-    {
-        isMoving = true;
-        while ((targetPos - transform.position).sqrMagnitude > moveSpeed)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
-
-        isMoving = false;
 
         CheckForEncouter();
     }
@@ -67,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForEncouter()
     {
-        if(Physics2D.OverlapCircle(transform.position,0.2f, grassLayer)!= null)
+        if(Physics2D.OverlapCircle(transform.position,0.2f, grassLayer))
         {
             if (Random.Range(1, 101) <= 10)
             {
