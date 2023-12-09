@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -181,6 +182,7 @@ public class CombatSystemManager : MonoBehaviour
     }
     private void HandleCombatEnd()
     {
+        ChangeScene("MainMap 1");
         UpdateCombatState(CombatState.End);
     }
     
@@ -213,6 +215,10 @@ public class CombatSystemManager : MonoBehaviour
         combatStateText.SetText("CombatState: " + state);
     }
     
- 
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     
 }

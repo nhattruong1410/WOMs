@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
@@ -64,8 +65,15 @@ public class PlayerController : MonoBehaviour
             if (Random.Range(1, 101) <= 10)
             {
                 Debug.Log("Encouter a monsters");
+                ChangeScene("CombatScene");
             }
         }
     }
+    
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    
 }
 
