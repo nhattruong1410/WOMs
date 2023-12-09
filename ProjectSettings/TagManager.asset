@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerMonster
   layers:
   - Default
   - TransparentFX
@@ -62,9 +63,21 @@ TagManager:
   - name: Player
     uniqueID: 4093159345
     locked: 0
-  - name: New Layer 8
+  - name: New Layer 12
+    uniqueID: 245303971
+    locked: 0
+  - name: New Layer 13
+    uniqueID: 695512357
+    locked: 0
+  - name: CombatBG
     uniqueID: 3722485155
     locked: 0
-  - name: New Layer 9
+  - name: InvincibleBG
     uniqueID: 4257642487
+    locked: 0
+  - name: Characters
+    uniqueID: 292504517
+    locked: 0
+  - name: PMonster
+    uniqueID: 1142667873
     locked: 0

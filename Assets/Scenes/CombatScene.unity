@@ -123,34 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &28119545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2352709753097284892, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-  m_PrefabInstance: {fileID: 1224750555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &28119546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5099522058873819889, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
   m_PrefabInstance: {fileID: 1224750555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &28119547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28119545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mName: Monster
-  mHealth: 100
-  mDamage: 20
-  mDefence: 10
-  skillManager: {fileID: 0}
-  skillList: 
 --- !u!1001 &80181816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,8 +297,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1088322519
-  m_SortingLayer: -1
+  m_SortingLayerID: -37324809
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -1116,34 +1093,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &827016011 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1365438895150000041, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-  m_PrefabInstance: {fileID: 1224750555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &827016012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2533326837527146405, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
   m_PrefabInstance: {fileID: 1224750555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &827016013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827016011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mName: Monster
-  mHealth: 100
-  mDamage: 20
-  mDefence: 10
-  skillManager: {fileID: 0}
-  skillList: 
 --- !u!1 &1018551852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,16 +1338,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2485916031490324153, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941103227}
-    - targetCorrespondingSourceObject: {fileID: 1365438895150000041, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 827016013}
-    - targetCorrespondingSourceObject: {fileID: 2352709753097284892, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 28119547}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
 --- !u!1 &1744476434
 GameObject:
@@ -1542,34 +1487,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSkill: 1
   combatSystemManager: {fileID: 243990960}
---- !u!1 &1941103225 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2485916031490324153, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
-  m_PrefabInstance: {fileID: 1224750555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1941103226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9201399818686601655, guid: 13ab2623e1929c74d8d232c5f48b9ff0, type: 3}
   m_PrefabInstance: {fileID: 1224750555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1941103227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941103225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1985da6cf824104ead2c77158c94ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mName: Monster
-  mHealth: 100
-  mDamage: 20
-  mDefence: 10
-  skillManager: {fileID: 0}
-  skillList: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
