@@ -11,14 +11,17 @@ public class PlayerController : MonoBehaviour
     public LayerMask IOLayer;
     public LayerMask grassLayer;
     
+    private Animator animator;
     private bool isMoving;
     private Rigidbody2D rb;
     private Vector3 input = new Vector3(0,0,1);
     private Vector3 vec3Zero = new Vector3(0,0,1);
 
+    private Vector3 playerPosition;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -34,8 +37,12 @@ public class PlayerController : MonoBehaviour
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
 
+            if (input.x != 0) input.y = 0;
             if (input != vec3Zero)
             {
+                animator.SetFloat ("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+
                 var targetPos = transform.position;
                 transform.position += input * (Time.deltaTime * moveSpeed);
 
@@ -44,8 +51,9 @@ public class PlayerController : MonoBehaviour
                 //     StartCoroutine(Move(targetPos));
                 // }
             }
+            
         }
-
+        animator.SetBool("isMoving", isMoving);
         CheckForEncouter();
     }
 
@@ -72,6 +80,10 @@ public class PlayerController : MonoBehaviour
     
     public void ChangeScene(string sceneName)
     {
+        playerPosition = transform.position;
+        PlayerPrefs.SetFloat("PlayerX", playerPosition.x);
+        PlayerPrefs.SetFloat("PlayerY", playerPosition.y);
+        
         SceneManager.LoadScene(sceneName);
     }
     
