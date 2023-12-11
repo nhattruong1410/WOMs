@@ -23,6 +23,7 @@ public class EMonster : Monster, IPointerClickHandler
         Debug.Log("Monster Click!");
         combatManager.monsterSelected = this;
         
+        //Change Selected Monster to this Monster
         if (combatManager.selectedSkill != SkillSystemMangager.MonsterSkill.Default)
         {
             skillManager.HandleSkill(combatManager.selectedSkill, combatManager.pMonster, this);

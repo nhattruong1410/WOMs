@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,23 @@ public class Monster : MonoBehaviour
     //Stats
     [Header("Monster Stats")]
     public string mName = "Monster";
-    public float mHealth = 100.0f;
-    public float mDamage = 20.0f;
-    public float mDefence = 10.0f;
+    public int mMaxHealth = 100;
+    public int mCurrentHealth = 100;
+    public int mDamage = 20;
+    public int mDefence = 10;
+    
     //Skill
     [Header("Skill")]
     [SerializeField] public SkillSystemMangager skillManager;
     public List<SkillSystemMangager.MonsterSkill> skillList = new List<SkillSystemMangager.MonsterSkill>();
+    
+    //HUD
+    public HealthBar healthBar;
+    
+    //METHODS
+    private void Start()
+    {
+        mCurrentHealth = mMaxHealth;
+        healthBar.SetHealth(mMaxHealth);
+    }
 }

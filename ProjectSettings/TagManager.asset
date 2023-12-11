@@ -17,7 +17,7 @@ TagManager:
   - IO
   - Grass
   - Player
-  - 
+  - Monster
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: InvincibleBG
+    uniqueID: 4257642487
     locked: 0
   - name: BG
     uniqueID: 1554706355
@@ -72,12 +75,9 @@ TagManager:
   - name: CombatBG
     uniqueID: 3722485155
     locked: 0
-  - name: InvincibleBG
-    uniqueID: 4257642487
-    locked: 0
   - name: Characters
     uniqueID: 292504517
     locked: 0
-  - name: PMonster
+  - name: Monster
     uniqueID: 1142667873
     locked: 0

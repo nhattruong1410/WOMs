@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 764606282569814378}
   - component: {fileID: 8469003897044189087}
   - component: {fileID: 7780408581202658123}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PMonster
   m_TagString: PlayerMonster
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1142667873
-  m_SortingLayer: 0
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 99e5075a0efabe945b8205faa3f83f42, type: 3}
   m_Color: {r: 1, g: 0.97547174, b: 0.97547174, a: 1}
