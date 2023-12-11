@@ -45,11 +45,11 @@ TagManager:
   - name: BG
     uniqueID: 1554706355
     locked: 0
-  - name: IO
-    uniqueID: 922565319
-    locked: 0
   - name: BO
     uniqueID: 4289321389
+    locked: 0
+  - name: IO
+    uniqueID: 922565319
     locked: 0
   - name: Sea
     uniqueID: 3570824957
