@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,21 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
-
-    public void SetMaxHealth(int health)
+    [SerializeField] private Transform bar;
+    private void Start()
     {
-        slider.maxValue = health;
-        slider.value = health;
+        Transform bar = transform.Find("Bar");
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
-        slider.value = health;
+        if(bar)
+            bar.localScale = new Vector3(health, 1f);
+    }
+
+    public void SetColor(Color color)
+    {
+        if(bar)
+            bar.Find("BarSprite").GetComponent<SpriteRenderer>().color = color;
     }
 }

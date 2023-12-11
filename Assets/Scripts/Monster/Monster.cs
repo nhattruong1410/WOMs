@@ -9,16 +9,18 @@ public class Monster : MonoBehaviour
     //Stats
     [Header("Monster Stats")]
     public string mName = "Monster";
-    public int mMaxHealth = 100;
-    public int mCurrentHealth = 100;
-    public int mDamage = 20;
-    public int mDefence = 10;
+    public float mMaxHealth = 100f;
+    public float mCurrentHealth = 100f;
+    public float mDamage = 20f;
+    public float mDefence = 10f;
     
     //Skill
     [Header("Skill")]
     [SerializeField] public SkillSystemMangager skillManager;
     public List<SkillSystemMangager.MonsterSkill> skillList = new List<SkillSystemMangager.MonsterSkill>();
     
+    
+    [Header("HUD")]
     //HUD
     public HealthBar healthBar;
     
@@ -26,6 +28,12 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         mCurrentHealth = mMaxHealth;
-        healthBar.SetHealth(mMaxHealth);
+        if(healthBar)
+         healthBar.SetHealth(NormalizeCurrentHealth());
+    }
+    
+    public float NormalizeCurrentHealth()
+    {
+        return (mCurrentHealth / mMaxHealth);
     }
 }

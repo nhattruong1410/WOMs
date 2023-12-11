@@ -34,8 +34,17 @@ public class SkillSystemMangager : MonoBehaviour
             {
                 if (caster.mDamage > target.mDefence)
                 {
-                    target.mCurrentHealth -= caster.mDamage - target.mDefence;
-                    target.healthBar.SetHealth(target.mCurrentHealth);
+                   
+                    if(target.mCurrentHealth <= 0)
+                    {
+                        Debug.Log("Destroy Target");
+                        Destroy(target.gameObject);
+                    }
+                    else
+                    {
+                        target.mCurrentHealth -= caster.mDamage - target.mDefence;
+                        target.healthBar.SetHealth(target.NormalizeCurrentHealth());
+                    }
                 }
                 else
                 {
