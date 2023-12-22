@@ -9,7 +9,7 @@ public class PMonster : Monster
     
 
     //METHODS
-    public void AddSkill(SkillSystemMangager.MonsterSkill skill)
+    public void AddSkill(SkillSystemMangager.MonsterAttackSkill skill)
     {
         skillList.Add(skill);
     }

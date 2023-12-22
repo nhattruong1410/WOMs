@@ -46,7 +46,7 @@ namespace Combat
         //--PlayerState--
         [Header("PlayerState")] 
         public bool isPlayerTurn = false;
-        public SkillSystemMangager.MonsterSkill selectedSkill = SkillSystemMangager.MonsterSkill.Default;
+        public SkillSystemMangager.MonsterAttackSkill selectedSkill = SkillSystemMangager.MonsterAttackSkill.Default;
         public Monster monsterSelected;
 
 
@@ -79,7 +79,7 @@ namespace Combat
                 if (pMonsterGO) pMonster = pMonsterGO.GetComponent<PMonster>(); 
                 if (pMonster)
                 {
-                    pMonster.skillList.Add(SkillSystemMangager.MonsterSkill.ABite);
+                    pMonster.skillList.Add(SkillSystemMangager.MonsterAttackSkill.ABite);
                     Debug.Log("Add Bite skill");
                 }
             }
@@ -169,7 +169,7 @@ namespace Combat
         {
             UpdateCombatState(CombatState.PlayerTurn);
         
-            if(selectedSkill != SkillSystemMangager.MonsterSkill.Default)
+            if(selectedSkill != SkillSystemMangager.MonsterAttackSkill.Default)
             {
                 StartCoroutine(RemindPlayerTurn());
                 Debug.Log("Please select a skill");
@@ -181,7 +181,7 @@ namespace Combat
         
             HandlePlayerTurn();
         }
-        public void PlayerSelectedSkill(SkillSystemMangager.MonsterSkill skill)
+        public void PlayerSelectedSkill(SkillSystemMangager.MonsterAttackSkill skill)
         {
             selectedSkill = skill;
         }

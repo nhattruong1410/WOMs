@@ -32,7 +32,7 @@ public class CenterBG : MonoBehaviour, IPointerClickHandler
     {
         if (combatSystemManager)
         {
-            combatSystemManager.selectedSkill = SkillSystemMangager.MonsterSkill.Default;
+            combatSystemManager.selectedSkill = SkillSystemMangager.MonsterAttackSkill.Default;
         }
         Debug.Log("Click InvinsibleBG");
     }

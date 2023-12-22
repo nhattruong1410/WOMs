@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: CilHaza
   description: 
-  monsterType: 0
+  monsterSprite: {fileID: 0}
+  type: 0
   maxHP: 39
-  damage: 52
+  attack: 0
   defence: 43
+  learnableMoves: []

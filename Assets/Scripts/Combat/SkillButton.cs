@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SkillButton : MonoBehaviour
 {
-    public SkillSystemMangager.MonsterSkill buttonSkill;
+    public SkillSystemMangager.MonsterAttackSkill buttonSkill;
     public CombatSystemManager combatSystemManager;
 
     public void OnClick()

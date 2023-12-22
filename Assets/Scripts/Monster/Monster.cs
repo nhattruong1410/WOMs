@@ -17,7 +17,7 @@ public class Monster : MonoBehaviour
     //Skill
     [Header("Skill")]
     [SerializeField] public SkillSystemMangager skillManager;
-    public List<SkillSystemMangager.MonsterSkill> skillList = new List<SkillSystemMangager.MonsterSkill>();
+    public List<SkillSystemMangager.MonsterAttackSkill> skillList = new List<SkillSystemMangager.MonsterAttackSkill>();
     
     
     [Header("HUD")]

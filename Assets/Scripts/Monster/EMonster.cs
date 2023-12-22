@@ -25,9 +25,9 @@ public class EMonster : Monster, IPointerClickHandler
         combatManager.monsterSelected = this;
         
         //Change Selected Monster to this Monster
-        if (combatManager.selectedSkill != SkillSystemMangager.MonsterSkill.Default)
+        if (combatManager.selectedSkill != SkillSystemMangager.MonsterAttackSkill.Default)
         {
-            skillManager.HandleSkill(combatManager.selectedSkill, combatManager.pMonsterGO, this);
+            skillManager.HandleAttackSkill(combatManager.selectedSkill, combatManager.pMonsterGO, this);
             combatManager.PlayerEndTurn();
         }
     }
